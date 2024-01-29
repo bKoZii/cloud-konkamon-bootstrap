@@ -1,0 +1,123 @@
+
+	<div class="m-5 text-center">
+		<h1 class="header">Member + Firebase</h1>
+		<p>สร้าง Form บน Angular + Upload เข้าไปยัง Database + ดึงข้อมูลมาจาก Database </p>
+	</div>
+	<hr>
+	<div class="row row-gap-0">
+		<div class="col col-sm-6 col-lg-8 col-md-8">
+			<div class="card">
+				<div class="card-body">
+					<h2 class="card-title">ข้อมูลสมาชิกในทีม</h2>
+					<!-- <p>Coming Soon...</p> -->
+					<table class="table table-striped">
+						<thead class="table-primary">
+							<tr>
+								<th>คำนำหน้า</th>
+								<th>ชื่อ</th>
+								<th>นามสกุล</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let memberData of memberList">
+								<td>{{memberData.title}}</td>
+								<td>{{memberData.fName}}</td>
+								<td>{{memberData.lName}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col col-lg-4 col-sm-6 col-md-4 right">
+			<div class="card">
+				<div class="card-body">
+					<h2 class="card-title right">เพิ่มสมาชิก</h2>
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addMember">
+						เพิ่มรายการ
+					</button>
+				</div>
+			</div>
+			<div class="modal fade" id="addMember" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg  modal-fullscreen-xxl-down modal-dialog-centered modal-size">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="staticBackdropLabel">เพิ่มสมาชิก</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+						</div>
+						<div class="modal-body">
+							<div class="row g-2" id="">
+								<div class="col-2">
+									<div class="form-floating">
+										<select [(ngModel)]="member.title" class="form-select" id="floatingSelect"
+											aria-label="Floating label select example">
+											<option selected>นาย</option>
+											<option value="นาง">นาง</option>
+											<option value="นางสาว">นางสาว</option>
+										</select>
+										<label for="floatingSelect">คำนำหน้า</label>
+									</div>
+								</div>
+								<div class="col-5">
+									<div class="form-floating mb">
+										<input type="name" class="form-control" id="fName"
+											[(ngModel)]="member.fName">
+										<label for="fName">ชื่อ</label>
+									</div>
+								</div>
+								<div class="col-5">
+									<div class="form-floating mb">
+										<input type="name" class="form-control" id="lName" [(ngModel)]="member.lName">
+										<label for="lName">นามสกุล</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="row g-2 mt-2">
+								<div class="col-4">
+									<div class="form-floating mb">
+										<input type="email" class="form-control" id="lName" [(ngModel)]="member.email">
+										<label for="eMail">อีเมลล์</label>
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="form-floating mb">
+										<input type="phone" class="form-control" id="phoneNum" data-mask="000 000 0000"
+											[(ngModel)]="member.mobileNum">
+										<label for="phoneNum">เบอร์โทร</label>
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="form-floating mb">
+										<input type="name" class="form-control" id="lName" [(ngModel)]="member.lineID">
+										<label for="lineID">ID ไลน์</label>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col">
+									<div class="form-floating">
+										<textarea [(ngModel)]="member.address" class="form-control"
+											id="address"></textarea>
+										<label for="address">ที่อยู่ปัจจุบัน</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" (click)="clearForm()">เคลียร์ข้อมูล</button>
+							<button *ngIf="member.fName && member.lName ; else btnDisabled" type="button"
+								class="btn btn-primary" (click)="submitForm()"
+								data-bs-dismiss="modal">บันทึกข้อมูล</button>
+
+							<ng-template #btnDisabled>
+								<button disabled class="btn btn-primary disabled">บันทึกข้อมูล</button>
+							</ng-template>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,60 @@
+<div class="container">
+    <div *ngIf="isMainWorkshopRoute(); else returnOutlet">
+        <div class="m-5 text-center">
+            <h1>Workshop</h1>
+            <p>รวมชิ้นงาน วิชา 0232430865 การพัฒนาคลาวด์แอปพลิเคชัน </p>
+        </div>
+
+    <section class="mt-5 mb-5">
+        <div class="row g-1">
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="/assets/angular.png" alt="Title" />
+                    <div class="card-body">
+                        <h4 class="card-title mb-0"><a routerLink="twowaybinding">Two-Way Binding</a></h4><span
+                            class="badge rounded-pill text-bg-success">ชิ้นงาน</span>
+
+                        <p class="card-text">ทดลองการเขียน Two-Way Binding</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="/assets/angular.png" alt="Title" />
+                    <div class="card-body">
+                        <h4 class="card-title mb-0"><a routerLink="form">Form</a></h4><span
+                            class="badge rounded-pill text-bg-success">ชิ้นงาน</span>
+
+                        <p class="card-text">ทดลองการเขียน Form บน Angular</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="/assets/me1.jpg" alt="Title" />
+                    <div class="card-body">
+                        <h4 class="card-title mb-0">Coming Soon..</h4><span
+                            class="badge rounded-pill text-bg-success">ชิ้นงาน</span>
+
+                        <p class="card-text">วันจันทร์ต่อไปจ้า</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <img class="card-img-top" src="/assets/me1.jpg" alt="Title" />
+                    <div class="card-body">
+                        <h4 class="card-title mb-0">Coming Soon..</h4><span
+                            class="badge rounded-pill text-bg-success">ชิ้นงาน</span>
+
+                        <p class="card-text">วันจันทร์ต่อไปจ้า</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    <ng-template #returnOutlet>
+        <router-outlet></router-outlet>
+    </ng-template>
+</div>

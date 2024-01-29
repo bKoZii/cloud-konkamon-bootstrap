@@ -1,0 +1,47 @@
+<main>
+    <div class="text-center m-5">
+        <h1>Workshop</h1>
+        <p>Two-Way Binding</p>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">ป้อนข้อมูล</div>
+                <div class="card-body">
+
+                    <div class="form-floating mb-3">
+                        <input [(ngModel)]="name" type="text" class="form-control" placeholder="" />
+                        <label for="formId1">ชื่อ</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input data-mask="0000" maxlength="4" [(ngModel)]="born" type="text" class="form-control"
+                            placeholder="" />
+                        <label for="formId1">ปีเกิด</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="button" name="" id="" class="btn btn-primary" [disabled]="!name || !born"
+                            disabled>
+                            ส่งข้อมูล
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">แสดงข้อมูล</div>
+                <div class="card-body">
+                    <div class="col">
+                        <div class="row"> <p><strong>ชื่อ: </strong>{{name}}</p></div>
+                        <div class="row"> <p><strong>ปีเกิด: </strong>{{born}}</p></div>
+                        <div class="row"> <p><strong >อายุ: </strong><span *ngIf="born">{{currentYear - born}}</span></p></div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
